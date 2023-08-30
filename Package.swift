@@ -7,9 +7,13 @@ let package = Package(
     products: [
         .library(name: "Son", targets: ["Son"]),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "git@github.com:mamouneyya/SwiftPM_Grandson.git", from: "0.0.0"),
+    ],
     targets: [
-        .target(name: "Son", dependencies: []),
+        .target(name: "Son", dependencies: [
+            .product(name: "Grandson", package: "SwiftPM_Grandson"),
+        ]),
         .testTarget(name: "SonTests", dependencies: ["Son"]),
     ]
 )
